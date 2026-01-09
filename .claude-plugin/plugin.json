@@ -1,9 +1,9 @@
 {
-  "name": "nds-ui",
+  "name": "nds-ui-skill",
   "version": "1.0.0",
-  "description": "Generate UI components in National Design Studio style - Instrument Serif typography, warm beige or dark navy themes, full-viewport heroes. Inspired by realfood.gov, trumprx.gov, americabydesign.gov.",
-  "author": "nagakarumuri",
+  "description": "Generate bold, striking UI with Instrument Serif typography, warm beige or dark navy themes, full-viewport heroes. That editorial, high-end aesthetic from NDS.",
+  "author": "naga-k",
   "license": "MIT",
-  "repository": "https://github.com/nagakarumuri/nds-ui",
-  "keywords": ["ui", "design", "nds", "national-design-studio", "government", "tailwind", "nextjs", "react"]
+  "repository": "https://github.com/naga-k/nds-ui-skill",
+  "keywords": ["ui", "design", "typography", "serif", "editorial", "tailwind", "nextjs", "react", "landing-page"]
 }

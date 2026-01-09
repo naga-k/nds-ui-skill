@@ -6,8 +6,8 @@ Professional UI generation for [National Design Studio](https://ndstudio.gov/) s
 
 ### Plugin Marketplace (Recommended)
 ```
-/plugin marketplace add nagakarumuri/nds-ui
-/plugin install nds-ui
+/plugin marketplace add naga-k/nds-ui-skill
+/plugin install nds-ui-skill
 ```
 
 ### Manual Installation
