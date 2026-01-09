@@ -1,0 +1,20 @@
+{
+  "name": "naga-k-nds-ui",
+  "owner": {
+    "name": "naga-k",
+    "email": "naga-k@users.noreply.github.com"
+  },
+  "description": "Bold, editorial UI generation for Claude Code",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "nds-ui-skill",
+      "source": "./.claude/skills/nds-ui",
+      "description": "Generate bold, striking UI with Instrument Serif typography, warm beige or dark navy themes, full-viewport heroes. That editorial, high-end aesthetic.",
+      "version": "1.0.0",
+      "author": "naga-k",
+      "category": "design",
+      "keywords": ["ui", "design", "typography", "serif", "editorial", "tailwind", "nextjs", "react"]
+    }
+  ]
+}
