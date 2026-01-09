@@ -12,7 +12,10 @@
       "source": "./.claude/skills/nds-ui",
       "description": "Generate bold, striking UI with Instrument Serif typography, warm beige or dark navy themes, full-viewport heroes. That editorial, high-end aesthetic.",
       "version": "1.0.0",
-      "author": "naga-k",
+      "author": {
+        "name": "naga-k",
+        "email": "naga-k@users.noreply.github.com"
+      },
       "category": "design",
       "keywords": ["ui", "design", "typography", "serif", "editorial", "tailwind", "nextjs", "react"]
     }
