@@ -40,33 +40,20 @@ export function Hero({ headline, subheadline, backgroundImage, cta }: HeroProps)
 ## Statistics Section
 
 ```tsx
-interface Stat {
-  value: string
-  label: string
-}
+interface Stat { value: string; label: string }
 
-interface StatsProps {
-  stats: Stat[]
-  headline?: string
-  variant?: 'light' | 'dark'
-}
-
-export function Stats({ stats, headline, variant = 'light' }: StatsProps) {
+export function Stats({ stats, headline, variant = 'light' }: { stats: Stat[]; headline?: string; variant?: 'light' | 'dark' }) {
   const bg = variant === 'dark' ? 'bg-black text-white' : 'bg-warm-cream text-black'
 
   return (
     <section className={`${bg} py-20 md:py-32`}>
       <div className="max-w-7xl mx-auto px-6">
-        {headline && (
-          <h2 className="font-serif text-3xl md:text-5xl text-center mb-16">{headline}</h2>
-        )}
+        {headline && <h2 className="font-serif text-3xl md:text-5xl text-center mb-16">{headline}</h2>}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
               <div className="font-serif text-6xl md:text-7xl lg:text-8xl">{stat.value}</div>
-              <div className="mt-4 text-sm md:text-base uppercase tracking-widest opacity-70 font-mono">
-                {stat.label}
-              </div>
+              <div className="mt-4 text-sm uppercase tracking-widest opacity-70 font-mono">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -79,14 +66,7 @@ export function Stats({ stats, headline, variant = 'light' }: StatsProps) {
 ## Content Section
 
 ```tsx
-interface ContentProps {
-  headline: string
-  body: string | string[]
-  variant?: 'light' | 'dark' | 'cream'
-  align?: 'left' | 'center'
-}
-
-export function Content({ headline, body, variant = 'light', align = 'center' }: ContentProps) {
+export function Content({ headline, body, variant = 'light', align = 'center' }: { headline: string; body: string | string[]; variant?: 'light' | 'dark' | 'cream'; align?: 'left' | 'center' }) {
   const bg = { light: 'bg-white text-black', dark: 'bg-black text-white', cream: 'bg-warm-cream text-black' }
   const paragraphs = Array.isArray(body) ? body : [body]
 
@@ -95,9 +75,7 @@ export function Content({ headline, body, variant = 'light', align = 'center' }:
       <div className={`max-w-4xl px-6 ${align === 'center' ? 'mx-auto text-center' : 'ml-auto mr-6 md:mr-24'}`}>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-tight">{headline}</h2>
         <div className="mt-8 space-y-6">
-          {paragraphs.map((p, i) => (
-            <p key={i} className="text-lg md:text-xl leading-relaxed opacity-80">{p}</p>
-          ))}
+          {paragraphs.map((p, i) => <p key={i} className="text-lg md:text-xl leading-relaxed opacity-80">{p}</p>)}
         </div>
       </div>
     </section>
@@ -108,19 +86,7 @@ export function Content({ headline, body, variant = 'light', align = 'center' }:
 ## Navigation
 
 ```tsx
-interface NavItem {
-  label: string
-  href: string
-}
-
-interface NavProps {
-  logo?: string
-  siteName: string
-  items: NavItem[]
-  variant?: 'transparent' | 'solid'
-}
-
-export function Navigation({ logo, siteName, items, variant = 'transparent' }: NavProps) {
+export function Navigation({ logo, siteName, items, variant = 'transparent' }: { logo?: string; siteName: string; items: { label: string; href: string }[]; variant?: 'transparent' | 'solid' }) {
   return (
     <nav className={`${variant === 'solid' ? 'bg-black' : 'bg-transparent'} fixed top-0 left-0 right-0 z-50`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -145,21 +111,9 @@ export function Navigation({ logo, siteName, items, variant = 'transparent' }: N
 
 ```tsx
 'use client'
-
 import { useState } from 'react'
 
-interface FAQItem {
-  question: string
-  answer: string
-}
-
-interface FAQProps {
-  headline?: string
-  items: FAQItem[]
-  variant?: 'light' | 'cream'
-}
-
-export function FAQ({ headline = 'Frequently Asked Questions', items, variant = 'cream' }: FAQProps) {
+export function FAQ({ headline = 'Frequently Asked Questions', items, variant = 'cream' }: { headline?: string; items: { question: string; answer: string }[]; variant?: 'light' | 'cream' }) {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
@@ -171,7 +125,7 @@ export function FAQ({ headline = 'Frequently Asked Questions', items, variant = 
             <div key={i} className="border-b border-black/10">
               <button onClick={() => setOpen(open === i ? null : i)} className="w-full py-6 flex items-center justify-between text-left">
                 <span className="font-serif text-xl md:text-2xl pr-8">{item.question}</span>
-                <span className="text-2xl flex-shrink-0">{open === i ? '−' : '+'}</span>
+                <span className="text-2xl">{open === i ? '−' : '+'}</span>
               </button>
               {open === i && <div className="pb-6 text-lg leading-relaxed opacity-80">{item.answer}</div>}
             </div>
@@ -190,36 +144,10 @@ export default function LandingPage() {
   return (
     <>
       <Navigation siteName="Project Name" items={[{ label: 'About', href: '#about' }, { label: 'Contact', href: '#contact' }]} />
-
-      <Hero
-        headline="Bold Statement Here"
-        subheadline="Supporting copy that explains the mission and value proposition."
-        backgroundImage="/hero.jpg"
-        cta={{ text: 'Get Started', href: '#start' }}
-      />
-
-      <Stats
-        headline="The Numbers"
-        stats={[
-          { value: '94%', label: 'Success Rate' },
-          { value: '2.4M', label: 'Users Served' },
-          { value: '$180B', label: 'Value Created' },
-        ]}
-      />
-
-      <Content
-        headline="Our Mission"
-        body={[
-          'First paragraph explaining the core mission.',
-          'Second paragraph with supporting details.',
-        ]}
-        variant="cream"
-      />
-
-      <FAQ items={[
-        { question: 'How does it work?', answer: 'Explanation here.' },
-        { question: 'Who is eligible?', answer: 'Eligibility details.' },
-      ]} />
+      <Hero headline="Bold Statement Here" subheadline="Supporting copy." backgroundImage="/hero.jpg" cta={{ text: 'Get Started', href: '#' }} />
+      <Stats headline="The Numbers" stats={[{ value: '94%', label: 'Success Rate' }, { value: '2.4M', label: 'Users' }, { value: '$180B', label: 'Value' }]} />
+      <Content headline="Our Mission" body={['First paragraph.', 'Second paragraph.']} variant="cream" />
+      <FAQ items={[{ question: 'How does it work?', answer: 'Explanation.' }]} />
     </>
   )
 }

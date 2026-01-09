@@ -1,0 +1,9 @@
+{
+  "name": "nds-ui",
+  "version": "1.0.0",
+  "description": "Generate UI components in National Design Studio style - Instrument Serif typography, warm beige or dark navy themes, full-viewport heroes. Inspired by realfood.gov, trumprx.gov, americabydesign.gov.",
+  "author": "nagakarumuri",
+  "license": "MIT",
+  "repository": "https://github.com/nagakarumuri/nds-ui",
+  "keywords": ["ui", "design", "nds", "national-design-studio", "government", "tailwind", "nextjs", "react"]
+}
