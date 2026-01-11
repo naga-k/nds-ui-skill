@@ -5,8 +5,16 @@ Professional UI generation for [National Design Studio](https://ndstudio.gov/) s
 ## Installation
 
 ### Plugin Marketplace (Recommended)
-```
+
+Run these commands **separately** (one at a time):
+
+```bash
 /plugin marketplace add naga-k/nds-ui-skill
+```
+
+Then:
+
+```bash
 /plugin install nds-ui-skill
 ```
 
